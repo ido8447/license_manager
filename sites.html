@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sites</title>
+        <link rel="icon" href="/license_manager/imgs/add.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/license_manager/imgs/add.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/license_manager/style.css">
+    <script>
+        var authenticated = document.cookie.includes("authenticated=1q2wadghffdgrthdryhd5f4145455y45645ghhfghg#E$R5t6y&U*I9o0p");
+        if (!authenticated) {
+            window.location.href = "https://license/license_manager/";
+        }
+
+     // Function to get cookie value by name
+            function getCookieValue(name) {
+                var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                if (match) return match[2];
+            }
+
+            var current_user = getCookieValue("current_user");
+            var greeting = current_user ? "Hello " + current_user : "Hello Guest";
+    </script>
+<div class="header">
+    <label style="color: white;" id="current-user-label"></label>
+    <h1>License Managment System</h1>
+    <a href="https://license/license_manager/Main_Page.html">
+        <img src="https://sysaid.ceva-dsp.com/FILESYSTEM/ceva/logo/logo_cevaop_trial.png" alt="SysAid Technologies Ltd." title="UserAdd">
+    </a>
+</div>
+ <script>
+          document.getElementById('current-user-label').textContent = greeting;
+    </script>
+</head>
+<body>
+    <h1>Sites</h1>
+    <form action="scripts/update_sites.py" method="post">
+        <label for="site_name">Name:</label>
+        <input type="text" name="site_name"><br><br>
+        <label for="mac_address">MAC Address:</label>
+        <input type="text" name="mac_address"><br><br>
+        <label for="backup_path">Backup Path:</label>
+        <input type="text" name="backup_path"><br><br>
+        <label for="current_location">Current File Location:</label>
+        <input type="text" name="current_location"><br><br>
+        <label for="password">License Server Password:</label>
+        <input type="password" name="password"><br><br>
+        <input type="submit" value="Apply">
+    </form>
+<button class="back_button" onclick="window.location.href ='/license_manager/Main_Page.html'">Back</button>
+
+</body>
+</html>

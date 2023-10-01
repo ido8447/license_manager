@@ -1,0 +1,33 @@
+<p> style="padding-top: 670px;font-size: 12px;padding-left: 0px;padding-right: 350px;">&copy; Ido Sternheim</p>
+this web server writing by ido sternheim
+on aug-sep 2023
+
+
+
+
+
+
+
+
+for group add:
+<td style="padding: 8px;">
+
+
+                                           <script>
+                                               function redirectToGroups() {{
+                                                    localStorage.setItem('nis_groups', '{nis_groups}');
+
+                                                   // Get the nis_groups data
+                                                   var nis_groups = "{nis_groups}";
+
+                                                   // Construct the URL with CGI form parameters
+                                                   var url = "/useradd/groups.html";
+
+                                                   // Redirect to the constructed URL
+                                                   window.location.href = url;
+                                               }}
+                                           </script>
+                                             <button onclick="redirectToGroups()">+</button>
+
+
+                                      </td>

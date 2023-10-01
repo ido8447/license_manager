@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>License Management</title>
+    <link rel="icon" href="/license_manager/imgs/add.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/license_manager/imgs/add.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/license_manager/style.css">
+<div class="header">
+    <h1>Authentication</h1>
+    <a href="https://license/license_manager/Main_Page.html">
+        <img src="https://sysaid.ceva-dsp.com/FILESYSTEM/ceva/logo/logo_cevaop_trial.png" alt="SysAid Technologies Ltd." title="UserAdd">
+    </a>
+</div>
+</head>
+
+<body>
+
+
+
+    <form action="/license_manager/authentication.py" method="post">
+        <label for="userName">User Name:</label>
+        <input type="text" id="userName" name="userName"><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+
+        <input type="submit" value="Log In">
+    </form>
+</body>
+</html>

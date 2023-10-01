@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add License</title>
+        <link rel="icon" href="/license_manager/imgs/add.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/license_manager/imgs/add.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/license_manager/style.css">
+    <script>
+        var authenticated = document.cookie.includes("authenticated=1q2wadghffdgrthdryhd5f4145455y45645ghhfghg#E$R5t6y&U*I9o0p");
+        if (!authenticated) {
+            window.location.href = "https://license/license_manager/";
+        }
+
+     // Function to get cookie value by name
+            function getCookieValue(name) {
+                var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                if (match) return match[2];
+            }
+
+            var current_user = getCookieValue("current_user");
+            var greeting = current_user ? "Hello " + current_user : "Hello Guest";
+    </script>
+<div class="header">
+    <label style="color: white;" id="current-user-label"></label>
+    <h1>License Managment System</h1>
+    <a href="https://license/license_manager/Main_Page.html">
+        <img src="https://sysaid.ceva-dsp.com/FILESYSTEM/ceva/logo/logo_cevaop_trial.png" alt="SysAid Technologies Ltd." title="UserAdd">
+    </a>
+</div>
+ <script>
+          document.getElementById('current-user-label').textContent = greeting;
+    </script>
+</head>
+<body>
+
+    <h1>Add License</h1>
+    <form action="scripts/update_license.py" method="post" enctype="multipart/form-data">
+        <label for="license_file">Insert License File:</label>
+        <input type="file" name="license_file" accept=".txt"><br><br>
+        <input type="submit" value="Apply">
+    </form>
+<button class="back_button" onclick="window.location.href ='/license_manager/Main_Page.html'">Back</button>
+
+</body>
+</html>
