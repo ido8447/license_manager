@@ -65,7 +65,7 @@ if userName and password:
 
     if authentication(userName, password):
         print(
-            '<script>document.cookie = `authenticated=1q2wadghffdgrthdryhd5f4145455y45645ghhfghg#E$R5t6y&U*I9o0p; expires=${new Date(Date.now() + 10 * 60 * '
+            '<script>document.cookie = `authenticated=1q2wadghffdgrthdryhd5f4145455y45645ghhfghg#E$R5t6y&U*I9o0p; expires=${new Date(Date.now() + 60 * 60 * '
             '1000).toUTCString()}`;</script>')
         print(
             f'<script>document.cookie = `current_user={ldapusername(userName)}; expires=${{new Date(Date.now() + 60 * 60 * 1000).toUTCString()}}`;</script>')
