@@ -16,19 +16,20 @@ if "site_name" in form and "mac_address" in form and "backup_path" in form and "
     mac_address = form["mac_address"].value
     backup_path = form["backup_path"].value
     current_location = form["current_location"].value
-
+    file_location = form["file_location"].value
     site_file = SITE_PATH + '/' + site_name
-    backup_path = SITE_PATH + '/backup' + '/' + site_name
     site = {
         "NAME": site_name,
         "MAC": mac_address,
-        "BCKP": backup_path,
-        "LOCATION": current_location
+        "LOCAL_BCKP": backup_path,
+        "SOFTWARE_BCKP": SITE_PATH + '/backup' + '/' + site_name,
+        "LOCATION": current_location,
+        "PATH": file_location
     }
     try:
         if os.path.exists(site_file):
             now = datetime.utcnow().strftime('%d.%m.%Y:%H:%M:%S')
-            dest = backup_path + "." +now
+            dest = SITE_PATH + '/backup' + '/' + site_name + "." + now
             shutil.copy(site_file, dest)
             file = open(site_file, "w")
             for key, value in site.items():

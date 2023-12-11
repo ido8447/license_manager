@@ -29,15 +29,16 @@ print("""<!DOCTYPE html>
 form = cgi.FieldStorage()
 
 if "license_file" in form:
-
     # Read the attachment license
     new_license_file = form["license_file"].file.read().decode("utf-8")
     now = datetime.utcnow().strftime('%d.%m.%Y:%H:%M:%S')
+
 
     # Return site name, site path and site license
     current_site = get_site_from_license(new_license_file)
     current_site_path = find_last_license(current_site)
     current_site_license = get_license_data(current_site_path)
+
 
     # Create license backup
     new_license_file_path = LICENSES_PATH + '/' + current_site + '.' + now
@@ -60,11 +61,15 @@ if "license_file" in form:
     print("<div style='display: inline-block; margin-right: 10px;'>")
     print('<p>Current LICENSE</p>')
     print(f"<textarea style='width: 651px; height: 850px; font-size: 16px;'>{current_same_features}</textarea>")
+   # print(f"<textarea style='width: 651px; height: 850px; font-size: 16px;'>{show_license_feature(current_site_path)}</textarea>")
+
     print("</div>")
 
     print("<div style='display: inline-block;'>")
     print('<p>New LICENSE</p>')
     print(f"<textarea style='width: 651px; height: 850px; font-size: 16px;'>{new_same_features}</textarea>")
+    #print(f"<textarea style='width: 651px; height: 850px; font-size: 16px;'>{show_license_feature(new_license_file_path)}</textarea>")
+
     print("</div>")
 
 

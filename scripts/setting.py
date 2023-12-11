@@ -33,10 +33,13 @@ def find_last_license(site):
     data = {}
     for line in lines:
         key, value = line.strip().split(": ")
-        if key == 'LOCATION':
+        if key == 'PATH':
             location = value
         data[key] = value
-    return subprocess.check_output([LMSTAT, '-c', location]).decode('utf-8').split(':')[3].strip()
+    #return subprocess.check_output([LMSTAT, '-c', location]).decode('utf-8').split(':')[3].strip()
+    process = subprocess.Popen([LMSTAT, '-c', location], stdout=subprocess.PIPE)
+    output, error = process.communicate()
+    return output.decode('utf-8').split(':')[3].strip()
 
 
 # return license data by a path
@@ -93,10 +96,13 @@ def get_site_from_license(license_data):
                 continue
 
 
+
 # show only features
 def show_license_feature(license_data):
-    grep_command = ['egrep', '-i', 'FEATURE|PACKAGE|INCREMENT', license_data]
+    grep_command = ['egrep', '-i', '^(FEATURE|PACKAGE|INCREMENT)', license_data]
     output = subprocess.check_output(grep_command).decode('utf-8')
+    #process = subprocess.Popen(grep_command, stdout=subprocess.PIPE)
+    #output, error = process.communicate()
     return output
 
 
@@ -106,11 +112,14 @@ def different_changes(current_features, new_features):
     current_same_features = []
     new_same_features = []
     all_same_feature = []
-
+    isincrement = False
     current = current_features.split("\n")
     new = new_features.split("\n")
     for nfeature in range(1, len(new) - 1):
         for cfeature in range(1, len(current) - 1):
+
+            if 'INCREMEN' in current[cfeature]:
+                isincrement = True
 
             if new[cfeature] == '':
                 break
@@ -120,21 +129,31 @@ def different_changes(current_features, new_features):
             if '#' in new[cfeature]:
                 continue
 
-            if len(current[nfeature]) > 1 and len(new[cfeature]) > 1 or current[nfeature] == '':
+            if len(current[cfeature]) > 1 and len(new[nfeature]) > 1:
                 nsplit = new[nfeature].split(' ')
                 csplit = current[cfeature].split(' ')
                 if csplit[1] == nsplit[1]:
                     new_same_features.append(new[nfeature])
-                    current_same_features.append((current[cfeature])+'\r')
+                    if isincrement:
+                        current_same_features.append((current[cfeature])+'\r')
+                    else:
+                        current_same_features.append((current[cfeature]))
                     break
             else:
                 break
 
     all_same_feature.append(new_same_features)
     all_same_feature.append(current_same_features)
+
     return all_same_feature
 
 
 
-
-
+#last = find_last_license('cadence')
+#last_data = get_license_data(last)
+#new = '/var/www/html/license_manager/license_lic-srv3.dat'
+#new_data = get_license_data(new)
+#
+#last_feat = show_license_feature(last_data)
+#new_feat = show_license_feature(new_data)
+#print(last_feat)
