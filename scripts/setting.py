@@ -36,7 +36,7 @@ def find_last_license(site):
         if key == 'PATH':
             location = value
         data[key] = value
-    #return subprocess.check_output([LMSTAT, '-c', location]).decode('utf-8').split(':')[3].strip()
+    # return subprocess.check_output([LMSTAT, '-c', location]).decode('utf-8').split(':')[3].strip()
     process = subprocess.Popen([LMSTAT, '-c', location], stdout=subprocess.PIPE)
     output, error = process.communicate()
     return output.decode('utf-8').split(':')[3].strip()
@@ -54,37 +54,6 @@ def get_license_data(_license):
     return ' '.join(output)
 
 
-# backup and call to update
-# last_lic => path to the current license #use find_last_license(site) function
-# new_lic => new license data #use form["license_file"].file.read().decode("utf-8")
-def make_update(last_lic, new_lic, site):
-    # find backup path
-    global bkp_path
-    _site_data = site_data(site)
-    for line in _site_data:
-        key, value = line.strip().split(": ")
-        if key == 'BCKP':
-            bkp_path = value
-
-    # create backup
-    now = datetime.utcnow().strftime('%d.%m.%Y:%H:%M:%S')
-    shutil.copy(last_lic, bkp_path + '/license_lic-srv3.dat.' + now)
-
-    # read last license data
-    with open(last_lic, 'r') as file:
-        last_lic_data = file.readlines()
-
-    # call to update function
-    update(last_lic_data, new_lic)
-
-
-# make the update functionality
-# use current and new as a licenses data
-# make_update() use this function by himself
-def update(current, new):
-    pass
-
-
 # return the site name from license data
 def get_site_from_license(license_data):
     license_data = license_data.split(':')
@@ -96,13 +65,12 @@ def get_site_from_license(license_data):
                 continue
 
 
-
 # show only features
 def show_license_feature(license_data):
     grep_command = ['egrep', '-i', '^(FEATURE|PACKAGE|INCREMENT)', license_data]
     output = subprocess.check_output(grep_command).decode('utf-8')
-    #process = subprocess.Popen(grep_command, stdout=subprocess.PIPE)
-    #output, error = process.communicate()
+    # process = subprocess.Popen(grep_command, stdout=subprocess.PIPE)
+    # output, error = process.communicate()
     return output
 
 
@@ -135,7 +103,7 @@ def different_changes(current_features, new_features):
                 if csplit[1] == nsplit[1]:
                     new_same_features.append(new[nfeature])
                     if isincrement:
-                        current_same_features.append((current[cfeature])+'\r')
+                        current_same_features.append((current[cfeature]) + '\r')
                     else:
                         current_same_features.append((current[cfeature]))
                     break
@@ -148,12 +116,13 @@ def different_changes(current_features, new_features):
     return all_same_feature
 
 
-
-#last = find_last_license('cadence')
-#last_data = get_license_data(last)
-#new = '/var/www/html/license_manager/license_lic-srv3.dat'
-#new_data = get_license_data(new)
+# last = find_last_license('cadence')
+# last_data = get_license_data(last)
+# new = '/var/www/html/license_manager/license_lic-srv3.dat'
+# new_data = get_license_data(new)
 #
-#last_feat = show_license_feature(last_data)
-#new_feat = show_license_feature(new_data)
-#print(last_feat)
+# last_feat = show_license_feature(last_data)
+# new_feat = show_license_feature(new_data)
+# print(last_feat)
+
+

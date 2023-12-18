@@ -19,12 +19,16 @@
 
             var current_user = getCookieValue("current_user");
             var greeting = current_user ? "Hello " + current_user : "Hello Guest";
+
+          function redirectToPreviousPage() {
+            window.location.href = '/license_manager/Main_Page.html';  // Change the URL accordingly
+        }
     </script>
 <div class="header">
     <label style="color: white;" id="current-user-label"></label>
     <h1>License Managment System</h1>
     <a href="https://license/license_manager/Main_Page.html">
-        <img src="https://sysaid.ceva-dsp.com/FILESYSTEM/ceva/logo/logo_cevaop_trial.png" alt="SysAid Technologies Ltd." title="UserAdd">
+               <img src="imgs/logo.PNG" alt="SysAid Technologies Ltd." title="license_manager">
     </a>
 </div>
  <script>
@@ -33,11 +37,11 @@
 </head>
 <body>
     <h1>Settings</h1>
-    <form action="scripts/update_settings.py" method="post">
+    <form action="scripts/update_settings.py" method="post" enctype="multipart/form-data">
         <label for="logo">Upload Logo:</label>
         <input type="file" name="logo" accept=".png"><br><br>
 
-        <input type="submit" value="Apply">
+        <input type="submit" value="Apply" onclick="redirectToPreviousPage()">
     </form>
 <button class="back_button" onclick="window.location.href ='/license_manager/Main_Page.html'">Back</button>
 
