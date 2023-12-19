@@ -1,0 +1,156 @@
+#
+# This email has been sent by an  automated
+# process. Please do  not reply to this email.
+##
+########################################################################
+#     COSLITE INFORMATION
+########################################################################
+#
+# PLEASE NOTE:  Your license file may contain COSLITE product depending on
+# your entitlement. This license will allow some digital tools to access
+# support.cadence.com content (via CadenceHelp) without requiring login.
+# This is a zero cost license and will be active as long as the primary tool
+# license is active. More information is available at
+# https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O0V000009Mns6UAC
+# For any further questions, please use the feedback option in the
+# https://support.cadence.com site and someone from the product team will get
+# back to you.
+#
+########################################################################
+#     TERMS AND CONDITIONS
+########################################################################
+#
+# IF THESE PRODUCTS ARE PROVIDED FOR USE FREE OF CHARGE, THEN THESE TERMS
+# AND CONDITIONS ("TERMS"), ALONG WITH THE TERMS AND CONDITIONS FOUND AT
+# http://www.cadence.com/termsandconditions/templicense ARE THE SOLE AND
+# EXCLUSIVE AGREEMENT FOR USE OF THESE PRODUCTS.
+#
+# If these Products have been approved by Cadence for Use on a
+# secure cloud service platform, the definition of Designated Equipment
+# shall mean such approved secure cloud service platform, which shall
+# include any and all security measures which are at least as stringent
+# as the security measures that Licensee itself uses to store its own
+# confidential or proprietary information, but in any event shall include
+# all reasonable security measures sufficient to ensure compliance
+# with the Terms.
+#
+# IF THESE PRODUCTS ARE PROVIDED PURSUANT TO A PAID LICENSE, THEN THESE
+# TERMS ALONG WITH YOUR SIGNED LICENSE AGREEMENT WITH CADENCE SHALL
+# GOVERN YOUR USE OF THE PRODUCTS.
+#
+# Please read these Terms carefully prior to downloading or using the
+# products. You must protect the product(s) from unauthorized
+# reproduction, publication, use or distribution.  If any product or
+# portion thereof is copied to or used on a computer connected to a
+# network, you must ensure that the product may not be used or copied
+# by unlicensed persons.
+#
+# To help ensure that you are only using authorized copies of the
+# product(s), Cadence may utilize monitoring technologies to obtain and
+# transmit non-proprietary data on unauthorized modifications to the
+# product(s).  No such data will be collected or transmitted unless
+# unauthorized modifications to a product or unauthorized hosting of the
+# license server or product(s) are suspected.
+# By downloading the product(s), you confirm that you have the authority
+# to act on behalf of your employer.  By downloading or using the
+# product(s) you hereby agree to the use of such technology and
+# transmission of such non-proprietary data by Cadence.
+#
+# IF YOU DO NOT AGREE TO THESE TERMS AND CONDITIONS, YOU MUST
+# IMMEDIATELY DELETE THIS  CORRESPONDENCE AND YOU MAY NOT USE THE
+# LICENSE FILE OR ANY PRODUCTS INCLUDED THEREIN
+#
+#
+#######################################################################
+#     CADENCE CUSTOMER SUPPORT
+#######################################################################
+#
+# If you have questions regarding this license file, please contact
+# Cadence customer support. The support information is available under
+# https://support.cadence.com/apex/CadenceSupportScreen
+#
+# You may use your Cadence Online Support account to access the
+# Cadence Electronic Software Download(ESD) Servers by going to
+# http://downloads.cadence.com Software Releases are available for
+# download for customers world-wide.
+#
+# THIS LICENSE FILE HAS BEEN GENERATED FOR HOSTID 001321b5530d
+#
+#
+#######################################################################
+#          CUSTOMER DETAILS
+#######################################################################
+#          Customer Name:CEVA DSP LTD
+#           Server  Name:Ceva2
+#       Server  Location:Israel
+#                Host Id:001321b5530d
+#           Contact Name:Sagi Zohar
+#             Contact Id:Sagi.Zohar@ceva-dsp.com
+#                       :jgeorge@intrinsix.com
+#                       :Dubi.Yarhi@ceva-dsp.com
+#                       :Moran.Ovadia@ceva-dsp.com
+#                       :Ido.Sternheim@ceva-dsp.com
+#                       :zivg
+#                       :ran
+#                       :zvib
+#                       :niry
+#                       :pazit
+#                       :SharonB@Ceva-DSP.com
+#                       :Noam.Meser@ceva-dsp.com
+#                       :luigiab
+#                       :aaronsch
+#                       :mayam
+#                       :tonyh
+#                       :Alon.Rot@ceva-dsp.com
+#                   Date:Sun Dec 03 12:06:02 PST 2023
+#  Lic.File Generated By:cipar1
+#               Comments:
+#
+#######################################################################
+#     INSTRUCTIONS
+#######################################################################
+#  1. Please   replace  "Cadence_SERVER"  with  hostname  of your machine
+#     in line   "SERVER Cadence_SERVER  &lt;hostid&gt; 5280".
+#  2. Please replace the relative path(  eg. ./cdslmd   ) to absolute path
+#     in the DAEMON line(s).
+#  3. Cadence now ships a complete license file for each server, so combining
+#     license files with a VENDOR_STRING value other than DEMO is no longer
+#     permitted.  Please contact your field administrator if you believe that
+#     product licenses are missing from this file.
+#  4. Some  e-mail utilities ( commonly on PC or  Macintosh  systems ) may
+#     modify the text of an e-mailed license file,   changes such as  word
+#     or line wrapping or  subdivision into  multiple sections,  when they
+#     receive or forward this file.  The resulting keys will be unreadable
+#     by the software security.To avoid this, these changes must be undone
+#     or the e-mail utility options disabled.
+#
+#######################################################################
+#     INSTRUCTIONS for Pointwise licenses
+#######################################################################
+#  1. Please   replace  "Cadence_SERVER"  with  hostname  of your machine
+#     in line   "HOST Cadence_SERVER  &lt;hostid&gt; 5053
+#
+########################## LICENSE KEYS START HERE ######################
+SERVER lic-srv3 001321b5530d 27006
+DAEMON cdslmd /tools/linux/cadence/LCU/LCU04.30.007/tools/bin/cdslmd OPTIONS=/tools/Flexlm/vendors/cadence/licenses/cdslmd.opt PORT=57006
+# DO NOT REMOVE THE USE_SERVER LINE
+USE_SERVER
+#--------------------------------------------------------------------------
+# Orcad License - Please, do not remove !!!
+FEATURE Capture cdslmd 16.6 25-dec-2100 2 DE689BDD6B8294BDF47B \
+        VENDOR_STRING=UHD:VAR_CDNMAGELLAN DUP_GROUP=UHD \
+        vendor_info=29-jun-2016 \
+        ISSUER=CDNSc3d191f9376182c02d02c4df423caed6 ISSUED=29-jun-2016 \
+        SN=2016-06-29T02:57:41:685 SIGN2="1159 1D90 9AB8 C551 D777 \
+        3693 A3D6 7C30 2DFF 88C1 CDD0 F725 B379 A2A6 C4F8 1E1D 715A \
+        7E3B 86C9 E362 AE75 0E01 979F 08DD 96EC 0489 74BB FAC6 44A6 \
+        B0D6" V7.1_LK=FEA8CB3D1C8CA58BC1B0
+FEATURE Capture cdslmd 17.2 25-dec-2100 1 8EB83B2D62E00CDD7CF6 \
+        VENDOR_STRING=UHD:VAR_CDNMAGELLAN DUP_GROUP=UHD \
+        vendor_info=29-jun-2016 \
+        ISSUER=CDNSc3d191f9376182c02d02c4df423caed6 ISSUED=29-jun-2016 \
+        SN=2016-06-29T02:57:41:685 SIGN2="0AF6 9A2C 9FD3 38EF 8D4F \
+        B20B E06C 96BB 7DA5 F7C0 1B36 7F42 E8D4 6BAF CE61 08AB 9DAF \
+        722E F8F1 6373 766E 24FE D77C F658 7C44 7E1C FC54 35A7 2C8D \
+        19AE" V7.1_LK=7E38BB4D8F5E1133919F
+#######

@@ -1,0 +1,6 @@
+NAME: synopsys
+MAC: 001321B5530D
+LOCAL_BCKP: /tools/Flexlm/vendors/synopsys/licenses/lic-srv3/backup
+SOFTWARE_BCKP: /var/www/html/license_manager/SITES/backup/synopsys
+LOCATION: 27000@lic-srv3
+PATH: /tools/Flexlm/vendors/synopsys/licenses/lic-srv3/license.dat

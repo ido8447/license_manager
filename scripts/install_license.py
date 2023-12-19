@@ -5,7 +5,7 @@ import shutil
 import subprocess
 from datetime import datetime
 
-from setting import find_last_license, site_data
+from setting import find_last_license, vendor_data
 
 print("Content-type: text/html\n")
 
@@ -31,28 +31,28 @@ print("""<!DOCTYPE html>
 form = cgi.FieldStorage()
 
 # backup and call to update
-# last_lic => path to the current license #use find_last_license(site) function
+# last_lic => path to the current license #use find_last_license(vendor) function
 # new_lic => new license data #use form["license_file"].file.read().decode("utf-8")
 
 
-if "new_license_file_path" in form and "current_site" in form:
+if "new_license_file_path" in form and "current_vendor" in form:
     # Extract parameters
     new_license_file = form.getvalue('new_license_file_path')
-    current_site = form.getvalue('current_site')
+    current_vendor = form.getvalue('current_vendor')
 
 
     # Your make_update function
-    def make_update(new_lic_path, site):
+    def make_update(new_lic_path, vendor):
 
         # find backup path
         global bkp_path
-        _site_data = site_data(site)
-        for line in _site_data:
+        _vendor_data = vendor_data(vendor)
+        for line in _vendor_data:
             key, value = line.strip().split(": ")
             if key == 'LOCAL_BCKP':
                 bkp_path = value
 
-        last_license_path = find_last_license(site)
+        last_license_path = find_last_license(vendor)
 
         date_now = datetime.utcnow().strftime('%d.%m.%Y.%H.%M.%S')
         # Create BCKP
@@ -66,18 +66,18 @@ if "new_license_file_path" in form and "current_site" in form:
             print("command failed with error:", e)
             pass
 
-        if site == 'synopsys':
+        if vendor == 'synopsys':
             # call to update function
-            update(site, new_lic_path)
+            update(vendor, new_lic_path)
         else:
-            switch(site, new_lic_path)
+            switch(vendor, new_lic_path)
 
 
     # make the update functionality
     # use current and new as a licenses data
     # make_update() use this function by himself
-    def update(site, new_lic_path):
-        last_lic = find_last_license(site)
+    def update(vendor, new_lic_path):
+        last_lic = find_last_license(vendor)
 
         # TESTING
         last_lic = "/var/www/html/license_manager/license_update_test/license.dat"
@@ -104,11 +104,12 @@ if "new_license_file_path" in form and "current_site" in form:
         try:
             # Use subprocess to run a bash command with sudo
             append = ['sudo', 'bash', '-c',
-                      f'echo "############################################{datetime.now()}\n" >> {last_lic}']
+                      f'echo "\n############################################{datetime.now()}" >> {last_lic}']
             subprocess.run(append, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
             for line in required_data:
-                append = ['sudo', 'bash', '-c', f'echo "{line}" >> {last_lic}']
+                line = line.replace('\n','')
+                append = ['sudo', 'bash', '-c', f"echo '{line}' >> {last_lic}"]
                 subprocess.run(append, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
 
@@ -120,12 +121,12 @@ if "new_license_file_path" in form and "current_site" in form:
         print("9")
 
 
-    def switch(site, new_lic_path):
+    def switch(vendor, new_lic_path):
         pass
 
 
     # Call make_update function
-    make_update(new_license_file, current_site)
+    make_update(new_license_file, current_vendor)
     print("10")
 
     # Print success message or redirect the user

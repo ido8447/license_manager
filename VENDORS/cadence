@@ -1,0 +1,6 @@
+NAME: cadence
+MAC: 001321b5530d
+LOCAL_BCKP: /tools/Flexlm/vendors/cadence/licenses/bckup
+SOFTWARE_BCKP: /var/www/html/license_manager/VENDORS/backup/cadence
+LOCATION: lic-srv3@27006
+PATH: /tools/Flexlm/vendors/cadence/licenses/license_lic-srv3.dat
